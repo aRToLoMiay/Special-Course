@@ -1,0 +1,42 @@
+﻿# -*- coding: utf-8 -*-
+# Упражнение 12. Вычисление комбинаций
+
+import sys
+import codecs
+sys.stdout = codecs.getwriter('cp866')(sys.stdout,'replace')
+
+print u"Для id состоящего из двух букв и трёх цифр может быть 26*26*10*10*10 = 676000 комбинаций"
+
+def sum(list):
+	S = 0
+	for i in range(len(list)):
+		S += list[i]
+	return S
+
+def getCombinations(list):
+	result = []
+	listInd = []
+	for i in range(len(list)):
+		result.append([]);
+		listInd.append(len(list[i])-1);
+	j = len(list)
+	i = 0
+	while sum(listInd != 0):
+		for k in range(len(list)):
+			result[i].append(list[k][listInd[k])
+		while (listInd[j] == 0) and (j != 0):
+			listInd[j] = len(list[j]) - 1
+			j -= 1
+		j = len(list) - 1
+	return result
+
+matrix = []
+a1 = [1, 2, 3, 4]
+a2 = ['q', 'w', 'e', 'r']
+a3 = [10, 100]
+matrix.append(a1)
+matrix.append(a2)
+matrix.append(a3)
+print getCombinations(matrix)
+			
+		
