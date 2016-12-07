@@ -1,10 +1,6 @@
 ﻿# -*- coding: utf-8 -*-
 # Упражнение 10. Сортировка массива чисел
 
-import sys
-import codecs
-sys.stdout = codecs.getwriter('cp866')(sys.stdout,'replace')
-
 from random import *
 
 ar = []

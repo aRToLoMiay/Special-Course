@@ -7,4 +7,4 @@ for i in range(6):
 
 d = float(S) / 5
 
-print u"Среднее значение = %.4f" % (d)
+print "Среднее значение = %.4f" % (d)

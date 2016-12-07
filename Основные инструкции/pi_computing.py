@@ -1,10 +1,6 @@
 ﻿# -*- coding: utf-8 -*-
 # Упражнение 11. Вычисление числа пи
 
-import sys
-import codecs
-sys.stdout = codecs.getwriter('cp866')(sys.stdout,'replace')
-
 def Leybniz(N):
 	S = 0.0
 	for i in range(N+1):
@@ -24,7 +20,7 @@ from math import pi
 import matplotlib.pyplot as plt
 
 print 4**(0.5)
-N = input(u"Введите число слагаемых: ")
+N = input("Введите число слагаемых: ")
 x = range(1, N+1)
 y = []
 for i in range(N):

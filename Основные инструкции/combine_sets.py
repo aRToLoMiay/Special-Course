@@ -1,11 +1,7 @@
 ﻿# -*- coding: utf-8 -*-
 # Упражнение 12. Вычисление комбинаций
 
-import sys
-import codecs
-sys.stdout = codecs.getwriter('cp866')(sys.stdout,'replace')
-
-print u"Для id состоящего из двух букв и трёх цифр может быть 26*26*10*10*10 = 676000 комбинаций"
+print "Для id состоящего из двух букв и трёх цифр может быть 26*26*10*10*10 = 676000 комбинаций"
 
 def sum(list):
 	S = 0
@@ -21,26 +17,38 @@ def getCombinations(list):
 	j = len(list)-1
 	i = 0
 	while sum(listInd) != 0:
-		print listInd
 		result.append([])
 		for k in range(len(list)):
 			result[i].append(list[k][listInd[k]])
 		i += 1
 		while (listInd[j] == 0):
 			j -= 1
-		if (j >= 0) and (j != len(list) - 1) and (listInd[j] == 0):
-			for k in range(j, len(list)-1, 1):
+
+		if (j >= 0):
+			listInd[j] -= 1
+			for k in range(j+1, len(list), 1):
 				listInd[k] = len(list[k]) - 1
 			j = len(list) - 1
-		else:
-			listInd[j] -= 1
+	
+	result.append([])
+	for k in range(len(list)):
+		result[i].append(list[k][listInd[k]])
 	return result
 
-matrix = []
-a1 = [1, 2, 3, 4]
-a2 = [10, 100]
-matrix.append(a1)
-matrix.append(a2)
-print getCombinations(matrix)
-			
-		
+def getNumberCombinations(list):
+	result = 1
+	for i in range(len(list)):
+		result *= len(list[i])
+	return result
+
+rank = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+lear = ['C', 'D', 'H', 'S']
+digit = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+letter = ['A', 'B', 'E', 'I', 'K', 'M', 'H', 'O', 'P', 'C', 'T', 'X']
+matrix = [rank, lear]
+deck = getCombinations(matrix)
+print "Количество карт = %d. Сама колода:" % (len(deck))
+print deck
+matrix = [digit, digit, digit, digit, letter, letter]
+regNumber = getNumberCombinations(matrix)
+print "Количество всех номеров = %d." % (regNumber)
